@@ -1,12 +1,13 @@
 #pragma once
-#include <vector>
-enum Move
+#include "Utilites.h"
+
+enum Action
 {
 	MOVE_UP,
 	MOVE_RIGHT,
 	MOVE_DOWN,
 	MOVE_LEFT,
-
+	Attack
 };
 
 static const Vector g_directions[4] = {
@@ -19,11 +20,10 @@ static const Vector g_directions[4] = {
 
 class Entity
 {
-	struct Entities 
-	{
-		pos = Vector;
-	};
+
 	void move() {};
 
-	void collision() {};
+	bool collision() {};
+
+	bool is_ennemy_here{};
 };
