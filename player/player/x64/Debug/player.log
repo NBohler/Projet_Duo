@@ -1,0 +1,3 @@
+﻿  player.cpp
+MSVCRTD.lib(exe_main.obj) : error LNK2019: symbole externe non résolu main référencé dans la fonction "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\eviardot\Documents\GitHub\Projet_Duo\player\x64\Debug\player.exe : fatal error LNK1120: 1 externes non résolus
