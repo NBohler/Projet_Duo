@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "maps", "maps\maps.vcxproj", "{51195873-EDF1-4774-A27A-2B280A7D680D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Debug|x64.ActiveCfg = Debug|x64
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Debug|x64.Build.0 = Debug|x64
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Debug|x86.ActiveCfg = Debug|Win32
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Debug|x86.Build.0 = Debug|Win32
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Release|x64.ActiveCfg = Release|x64
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Release|x64.Build.0 = Release|x64
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Release|x86.ActiveCfg = Release|Win32
+		{51195873-EDF1-4774-A27A-2B280A7D680D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3957E86-64AF-4156-9738-0C2299D6DE0B}
+	EndGlobalSection
+EndGlobal
