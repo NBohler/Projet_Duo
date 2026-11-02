@@ -1,0 +1,4 @@
+﻿  Ennemies.cpp
+  PlayeR.cpp
+C:\Users\nbohler\Documents\GitHub\Projet_Duo\AdevntureGame_POO\AdevntureGame_POO\PlayeR.cpp(6,14): error C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  Génération de code en cours...
