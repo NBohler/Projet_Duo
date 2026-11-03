@@ -1,26 +1,31 @@
 #pragma once
 #include "Entity.h"
 
-class Player : Entity
+class Player : public Entity
 {
+public:
+	Player(int life) : Entity(life) {}
 	Action playerInput();    // Utilisé pour recuperer l'action du joueurs 
-	void getCollision();
+	void getCollision() override;
 	void virtual playerMove(Vector2 dir);
 };
 
-class Warrior : Player
+class Warrior : public Player
 {
-	int life_point = 4;
+public:
+	Warrior() : Player(4) {};
 	void isAlive();
 
 };
 
-class Mage : Player
+class Mage : public Player
 {
-	int life_point = 1;
+public:
+	Mage() : Player(1) {};
 };
 
-class WarriorMage : Player
+class WarriorMage : public Player
 {
-	int life_point = 4;
+public:
+	WarriorMage() : Player(4) {};
 };

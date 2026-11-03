@@ -2,15 +2,16 @@
 #include <iostream>
 #include <conio.h>
 
-void isAlive(Entity character) 
+bool Entity::isAlive() 
 {
-	if (character.life_point = 0) 
+	if (life_point <= 0) 
 	{
-
+		return false;
 	}
+	return true;
 }
 
-void getCollision() 
+void Entity::getCollision() 
 {
 
 }

@@ -1,25 +1,22 @@
 #pragma once
 #include "Entity.h"
 
-class Enemy : Entity
+class Enemy : public Entity
 {
-private:
-	int life_point = 1;
-	int damage = 1;
+	void getCollision() override;
 	
 };
 
-class Zombie : Enemy
+class Zombie : public Enemy
 {
 
 };
 
-class HeadlessZombie : Enemy
+class HeadlessZombie : public Enemy
 {
 };
 
-class SwimmerZombie : Enemy
+class SwimmerZombie : public Enemy
 {
-	void getCollision();
 };
 

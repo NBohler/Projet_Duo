@@ -3,7 +3,7 @@
 
 Action Player::playerInput()
 {
-	int input = getch();
+	int input = _getch();
 
 	Action direction = Action::None;
 
@@ -22,4 +22,5 @@ Vector2 getDirection(Action direction)
 {
 	return g_directions[(int)direction - 1];
 }
+
 
