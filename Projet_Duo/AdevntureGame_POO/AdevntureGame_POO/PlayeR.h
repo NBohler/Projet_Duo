@@ -5,17 +5,13 @@ class Player : public Entity
 {
 public:
 	Player(int life) : Entity(life) {}
-	Action playerInput();    // Utilisé pour recuperer l'action du joueurs 
-	/*void getCollision() override;
-	void virtual playerMove(Vector2 dir);*/
+	Action playerInput();
 };
 
 class Warrior : public Player
 {
 public:
 	Warrior() : Player(4) {};
-	void isAlive();
-
 };
 
 class Mage : public Player
@@ -29,3 +25,4 @@ class WarriorMage : public Player
 public:
 	WarriorMage() : Player(4) {};
 };
+

@@ -1,4 +1,5 @@
 #include "PlayeR.h"
+#include <string>
 #include <conio.h>
 
 Action Player::playerInput()
@@ -22,9 +23,18 @@ Action Player::playerInput()
 	return direction;
 }
 
-Vector2 getDirection(Action direction)
+Vector2 getDirection(Action player_action)
 {
-	return g_directions[(int)direction - 1];
+	return g_directions[(int)player_action - 1];
 }
 
 
+void move(Vector2 dir, std::string currentMap, Player player)
+{
+	
+}
+
+void spell()
+{
+
+}

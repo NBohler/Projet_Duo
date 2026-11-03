@@ -3,8 +3,9 @@
 
 class Enemy : public Entity
 {
-	void getCollision() override;
-	
+public:
+	Vector2 getRandomDirection();
+	void move(Enemy character);
 };
 
 class Zombie : public Enemy
@@ -19,4 +20,3 @@ class HeadlessZombie : public Enemy
 class SwimmerZombie : public Enemy
 {
 };
-

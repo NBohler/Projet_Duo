@@ -2,7 +2,7 @@
 #include <iostream>
 #include <conio.h>
 
-bool Entity::isAlive() 
+bool Entity::isAlive()
 {
 	if (life_point <= 0) 
 	{
