@@ -6,8 +6,8 @@ class Player : public Entity
 public:
 	Player(int life) : Entity(life) {}
 	Action playerInput();    // Utilisé pour recuperer l'action du joueurs 
-	void getCollision() override;
-	void virtual playerMove(Vector2 dir);
+	/*void getCollision() override;
+	void virtual playerMove(Vector2 dir);*/
 };
 
 class Warrior : public Player

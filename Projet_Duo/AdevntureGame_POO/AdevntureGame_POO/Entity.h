@@ -28,7 +28,9 @@ public:
 	virtual void getCollision();	 // Permet de faire les collisions 
 	bool isAlive();		//Vérification de si le joueur ou l'ennemi est en vie 
 	void takeDamage(); //Permet au joueur et aux ennemies de prendres des dégats 
+	int getLife(); //Permet de récupérer les points de vie de l'entité
 	Vector2 getDirection();
+
 
 protected:
 	int life_point;

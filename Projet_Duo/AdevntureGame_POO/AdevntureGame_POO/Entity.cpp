@@ -15,3 +15,13 @@ void Entity::getCollision()
 {
 
 }
+
+void Entity::takeDamage() 
+{
+	life_point-=1;
+}
+
+int Entity::getLife() 
+{
+	return life_point;
+}
