@@ -127,12 +127,14 @@
     <ClCompile Include="AdevntureGame_POO.cpp" />
     <ClCompile Include="Ennemies.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="PlayeR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ennemies.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="PlayeR.h" />
     <ClInclude Include="Utilities.h" />
