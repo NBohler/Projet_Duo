@@ -11,7 +11,7 @@ enum Action
 	Attack
 };
 
-static const Vector2 g_directions[4] = 
+static const Vector2 g_directions[4] =
 {
 	{0, -1},  // Up
 	{1, 0},  // Right
@@ -22,17 +22,15 @@ static const Vector2 g_directions[4] =
 class Entity
 {
 public:
-	Entity(int life) : life_point(life) {}
-	Entity(Vector2 position) : pos(position) {}
-	void move();	      // Va gérer les déplacements 
+	Entity(int life, Vector2 position = Vector2{}) : life_point(life), pos(position) {}
+	void move(Vector2 dir);	      // Va gérer les déplacements 
 	virtual void getCollision();	 // Permet de faire les collisions 
 	bool isAlive();		//Vérification de si le joueur ou l'ennemi est en vie 
 	void takeDamage(); //Permet au joueur et aux ennemies de prendres des dégats 
 	int getLife(); //Permet de récupérer les points de vie de l'entité
-	Vector2 getDirection();
-	
+	Vector2 getPos(); //Permet de récupérer la position de l'entité
+
 protected:
 	Vector2 pos = Vector2{};
-	int life_point;	
+	int life_point;
 };
-

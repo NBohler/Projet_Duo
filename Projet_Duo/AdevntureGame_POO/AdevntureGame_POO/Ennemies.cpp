@@ -13,6 +13,5 @@ Vector2 Enemy::getRandomDirection()
 
 void move(Enemy& characters,char map)
 { 
-	Vector2 newPos = characters.pos;
 
 }
