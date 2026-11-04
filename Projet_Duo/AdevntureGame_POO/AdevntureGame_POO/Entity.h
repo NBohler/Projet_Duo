@@ -23,7 +23,7 @@ class Entity
 {
 public:
 	Entity(int life, Vector2 position = Vector2{}) : life_point(life), pos(position) {}
-	void move(Vector2 dir);	      // Va gérer les déplacements 
+	virtual void move(Vector2 dir);	      // Va gérer les déplacements 
 	bool isAlive();		//Vérification de si le joueur ou l'ennemi est en vie 
 	void takeDamage(); //Permet au joueur et aux ennemies de prendres des dégats 
 	int getLife(); //Permet de récupérer les points de vie de l'entité

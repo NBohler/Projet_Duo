@@ -11,7 +11,8 @@ Vector2 Enemy::getRandomDirection()
 	return g_directions[distrib(gen)];
 }
 
-void move(Enemy& characters,char map)
+void Enemy::move(Vector2 dir)
 { 
-
+	dir = getRandomDirection();
+	pos = pos + dir;
 }

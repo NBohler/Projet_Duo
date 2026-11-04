@@ -26,3 +26,8 @@ Vector2 Player::getDirection(Action direction)
 {
 	return g_directions[(int)direction - 1];
 }
+
+void Player::move(Vector2 dir)
+{
+	pos = pos + dir;
+}

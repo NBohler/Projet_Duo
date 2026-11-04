@@ -7,6 +7,8 @@ public:
 	Player(int life, Vector2 position = Vector2{}) : Entity(life, position) {}
 	Action playerInput();    // Utilisé pour recuperer l'action du joueurs 
 	Vector2 getDirection(Action direction); //Récupère la direction du joueur ou de l'ennemi
+
+	void move(Vector2 dir) override;
 };
 
 class Warrior : public Player

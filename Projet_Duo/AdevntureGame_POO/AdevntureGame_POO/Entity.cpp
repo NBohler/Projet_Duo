@@ -11,13 +11,13 @@ bool Entity::isAlive()
 	return true;
 }
 
-bool Entity::getCollision()
-{
-	if (pos.x < 0 || pos.y > 20) {
-		return true;
-	}
-	return false;
-}
+//bool Entity::getCollision()
+//{
+//	if () {
+//		return true;
+//	}
+//	return false;
+//}
 
 void Entity::takeDamage()
 {
