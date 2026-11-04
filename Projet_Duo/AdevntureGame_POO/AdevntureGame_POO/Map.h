@@ -1,6 +1,4 @@
 #pragma once
-class Map
-#pragma once
 #include <vector>
 #include "Utilities.h"
 
