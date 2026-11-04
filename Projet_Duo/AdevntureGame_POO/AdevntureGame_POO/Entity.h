@@ -1,5 +1,5 @@
 #pragma once
-#include "Utilites.h"
+#include "Utilities.h"
 
 enum Action
 {
@@ -10,18 +10,10 @@ enum Action
 	Attack
 };
 
-static const Vector g_directions[4] = {
-	{0,-1},  // Up
-	{0, 1},  // Down
-	{-1, 0}, // Left
-	{1, 0}   // Right
-};
-
-
 class Entity
 {
 
-	void move() {};
+	void move();
 
 	bool collision() {};
 

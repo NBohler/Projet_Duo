@@ -4,7 +4,7 @@
 
 void Entity::move()
 {
-	int input = getch();
+	int input = _getch();
 
 	switch (input) {
 	case 'Z':Action::MOVE_UP; break;
