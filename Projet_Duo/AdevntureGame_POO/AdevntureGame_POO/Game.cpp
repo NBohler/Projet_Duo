@@ -14,7 +14,7 @@ void RunGameLoop() {
     while (running && levelIdx < (int)maps.size()) {
         system("cls");
         Map* currentMap = maps[levelIdx];
-        currentMap->Draw({ 0, 0 }, currentMap->GetEnemySpawn());
+        currentMap->Draw(hero.getPos(), currentMap->GetEnemySpawn());
         hero.move(hero.getDirection(hero.playerInput()));
         if (not hero.isAlive()) {
             running = false;

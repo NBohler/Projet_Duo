@@ -36,7 +36,6 @@ public:
     char getCell(Vector2 pos) const;
     void LoadFromFile(const char* rawData[10]);
     void Draw(Vector2 playerPos, const std::vector<Vector2>& enemies) const;
-
     int GetWidth() const { return width; }
     int GetHeight() const { return height; }
     Vector2 GetPlayerSpawn() const { return playerSpawn; }
