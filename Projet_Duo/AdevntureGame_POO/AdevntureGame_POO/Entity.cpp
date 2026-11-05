@@ -11,9 +11,18 @@ bool Entity::isAlive()
 	return true;
 }
 
-bool Entity::getCollision()
+void Entity::onUpdate(Map& map, std::vector<Entity*>& others)
 {
-	return 0;
+	// 1. Mouvement
+	Vector2 dir = chooseDirection(others);
+	if (map.isWalkable(pos + dir))
+		move(dir);
+
+	// 2. Collisions
+	for (Entity* other : others) {
+		if (other != this && other->isAlive() && other->getPos() == pos)
+			onCollision(other);
+	}
 }
 
 void Entity::takeDamage()

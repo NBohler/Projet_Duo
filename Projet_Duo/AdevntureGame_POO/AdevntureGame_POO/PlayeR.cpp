@@ -24,6 +24,8 @@ Action Player::playerInput()
 
 Vector2 Player::getDirection(Action direction)
 {
+	if (direction == Action::None || direction == Action::Attack) // Permet d'esquiver les touches inconnus et de définir si le joueur attaque ou non
+		return { 0, 0 };
 	return g_directions[(int)direction - 1];
 }
 

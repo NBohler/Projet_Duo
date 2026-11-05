@@ -6,7 +6,7 @@ enum E_CellType {
     Ground = 0,
     Mountain = 1,
     Water = 2,
-    Enemy = 3,
+    Enemies = 3,
     Exit = 4,
     Count = 5
 };
@@ -25,14 +25,11 @@ private:
     TileInfo tileInfos[E_CellType::Count];
     Vector2 playerSpawn;
     std::vector<Vector2> enemySpawn;
-
     void initTileInfos();
     void parseRow(const char* rowData, int y);
-
 public:
     Map(const char* rawData[10], Vector2 spawn);
     ~Map();
-
     char getCell(Vector2 pos) const;
     void LoadFromFile(const char* rawData[10]);
     void Draw(Vector2 playerPos, const std::vector<Vector2>& enemies) const;
@@ -42,6 +39,7 @@ public:
     const std::vector<Vector2>& GetEnemySpawn() const {
         return enemySpawn;
     }
+    bool isWalkable(Vector2 pos) const;
 };
 
 std::vector<Map*> loadAllMaps();

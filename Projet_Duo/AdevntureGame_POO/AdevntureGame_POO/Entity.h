@@ -1,5 +1,6 @@
 #pragma once
 #include "Utilities.h"
+#include "Map.h"
 
 enum Action
 {
@@ -29,10 +30,12 @@ public:
 	int getLife(); //Permet de récupérer les points de vie de l'entité
 	Vector2 getPos(); //Permet de récupérer la position de l'entité
 	virtual ~Entity() = default;
+	void onUpdate(Map& map, std::vector<Entity*>& others);   // mouvement + collisions
+	virtual void onCollision(Entity* other) = 0;
+	virtual Vector2 chooseDirection(std::vector<Entity*>& others) = 0;
 
 protected:
-	virtual bool getCollision();	 // Permet de faire les collisions 
-	Vector2 pos = Vector2{};
+    Vector2 pos = Vector2{};
 	int life_point;
 
 };
