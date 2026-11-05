@@ -11,13 +11,10 @@ bool Entity::isAlive()
 	return true;
 }
 
-//bool Entity::getCollision()
-//{
-//	if () {
-//		return true;
-//	}
-//	return false;
-//}
+bool Entity::getCollision()
+{
+	return 0;
+}
 
 void Entity::takeDamage()
 {

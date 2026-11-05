@@ -28,6 +28,7 @@ public:
 	void takeDamage(); //Permet au joueur et aux ennemies de prendres des dégats 
 	int getLife(); //Permet de récupérer les points de vie de l'entité
 	Vector2 getPos(); //Permet de récupérer la position de l'entité
+	virtual ~Entity() = default;
 
 protected:
 	virtual bool getCollision();	 // Permet de faire les collisions 
