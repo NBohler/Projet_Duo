@@ -4,6 +4,7 @@
 #include "PlayeR.h"
 #include <iostream>
 
+
 // Définition de la fonction en premier
 void RunGameLoop() {
     std::vector<Map*> maps = loadAllMaps();

@@ -16,9 +16,9 @@ Vector2 Enemy::getRandomDirection()
 std::vector<Enemy*> createEnemiesGroup()
 {
 	std::vector<Enemy*> group;
-	group.push_back(new Zombie({ 3, 3 }));
-	group.push_back(new HeadlessZombie({ 5, 2 }));
-	group.push_back(new SwimmerZombie({ 1, 4 }));
+	group.push_back(new Zombie({ 15, 9 }));
+	group.push_back(new HeadlessZombie({ 6, 7 }));
+	group.push_back(new SwimmerZombie({ 19, 4 }));
 	return group;
 }
 
