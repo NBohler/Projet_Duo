@@ -1,53 +1,60 @@
 #include "Map.h"
 #include <iostream>
 
-static const char* rawLevel1[10] = {
-    ".................AAA",
-    ".~~~~...............",
-    "................~~~~",
-    "....................",
-    ".......AAA..........",
-    ".......AAA..........",
-    ".~~~~......~~~~~....",
-    "....................",
-    "...............~~~~~",
-    "AAA................E",
-
+static const int rawLevel1[10][20] = {
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2},
+    {0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,1,1,1,1,0,0,0,1,1,1,1,1,1,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1},
+    {2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4}
 };
 
-static const char* rawLevel2[10] = {
-   "....................",
-   ".AAA..~~~....AA.....",
-   ".AAA..~~~....AA.....",
-   ".............AA.....",
-   "..~~~....AAA........",
-   "..~~~....AAA..~~~...",
-   "..............~~~...",
-   ".AA...~~..........AA",
-   ".AA...~~...AAA....AA",
-   "...................E",
+static const int rawLevel2[10][20] = {
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,2,2,2,0,1,1,1,0,0,0,0,2,2,0,0,0,0,0,0},
+    {0,2,2,2,0,1,1,1,0,0,0,0,2,2,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0},
+    {0,0,1,1,1,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0},
+    {0,0,1,1,1,0,0,0,2,2,2,0,1,1,1,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0},
+    {0,2,2,0,0,1,1,0,0,0,0,0,0,0,0,0,2,2,0,0},
+    {0,2,2,0,0,1,1,0,0,2,2,2,0,0,0,0,2,2,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4}
 };
 
-static const char* rawLevel3[10] = {
-    "....................",
-    ".AAA..~~~....AA.....",
-    "......~~~....AA.....",
-    ".............AA.....",
-    "..~~~....AAA.......E",
-    "..~~~....AAA..~~~...",
-    "..............~~~...",
-    ".AA...~~..........AA",
-    ".AA...~~...AAA....AA",
-    "....................",
+static const int rawLevel3[10][20] = {
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,2,2,2,0,1,1,1,0,0,0,0,2,2,0,0,0,0,0,0},
+    {0,2,2,2,0,1,1,1,0,0,0,0,2,2,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0},
+    {0,0,1,1,1,0,0,0,2,2,2,0,0,0,0,0,0,0,0,4},
+    {0,0,1,1,1,0,0,0,2,2,2,0,1,1,1,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0},
+    {0,2,2,0,0,1,1,0,0,0,0,0,0,0,0,0,2,2,0,0},
+    {0,2,2,0,0,1,1,0,0,2,2,2,0,0,0,0,2,2,0,0},
+    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 };
-
-Map::Map(const char* rawData[10], Vector2 spawn)
-    : width(20), height(10), playerSpawn(spawn) {
-    initTileInfos();
-    LoadFromFile(rawData);
-}
 
 Map::~Map() {}
+
+Map::Map(const int source[10][20], Vector2 spawn)
+    : width(20), height(10), playerSpawn(spawn) {
+    initTileInfos();
+    enemySpawn.clear();
+    for (int y = 0; y < height; ++y) {
+        for (int x = 0; x < width; ++x) {
+            grid[y][x] = source[y][x];
+            if (grid[y][x] == E_CellType::Enemies) {
+                enemySpawn.push_back({ x, y });
+            }
+        }
+    }
+}
 
 void Map::initTileInfos() {
     tileInfos[E_CellType::Ground] = { '.', true, true };
@@ -58,27 +65,12 @@ void Map::initTileInfos() {
 }
 
 char Map::getCell(Vector2 pos) const {
-    return rawGrid[pos.y][pos.x];
+    int type = grid[pos.y][pos.x];
+    return tileInfos[type].symbol;
 }
 
-void Map::parseRow(const char* rowData, int y) {
-    for (int x = 0; x < width; ++x) {
-        rawGrid[y][x] = rowData[x];
-        if (rowData[x] == 'X') {
-            enemySpawn.push_back({ x, y });
-        }
-    }
-}
-
-void Map::LoadFromFile(const char* rawData[10]) {
-    enemySpawn.clear();
-    for (int y = 0; y < height; ++y) {
-        parseRow(rawData[y], y);
-    }
-}
-
-void Map::Draw(Vector2 playerPos,
-    const std::vector<Vector2>& enemies) const {
+void Map::Draw(Vector2 playerPos, const std::vector<Vector2>& enemies)
+const {
     for (int y = 0; y < height; ++y) {
         for (int x = 0; x < width; ++x) {
             Vector2 pos = { x, y };
@@ -91,18 +83,19 @@ void Map::Draw(Vector2 playerPos,
                     if (e.x == x && e.y == y) isEnemy = true;
                 }
                 if (isEnemy) std::cout << 'X';
-                else std::cout << rawGrid[y][x];
+                else std::cout << getCell(pos);
             }
         }
         std::cout << '\n';
     }
 }
 
+
 std::vector<Map*> loadAllMaps() {
     std::vector<Map*> levels;
     levels.push_back(new Map(rawLevel1, { 0, 0 }));
-    levels.push_back(new Map(rawLevel2, { 1, 1 }));
-    levels.push_back(new Map(rawLevel3, { 0, 9 }));
+    levels.push_back(new Map(rawLevel2, { 0, 0 }));
+    levels.push_back(new Map(rawLevel3, { 0, 0 }));
     return levels;
 }
 
@@ -116,9 +109,6 @@ void freeAllMaps(std::vector<Map*>& levels) {
 bool Map::isWalkable(Vector2 p) const {
     if (p.x < 0 || p.x >= width || p.y < 0 || p.y >= height)
         return false;
-    char c = rawGrid[p.y][p.x];
-    for (int i = 0; i < E_CellType::Count; ++i)
-        if (tileInfos[i].symbol == c)
-            return tileInfos[i].isWalkable;
-    return false;
+    int c = grid[p.y][p.x];
+    return tileInfos[c].isWalkable;
 }

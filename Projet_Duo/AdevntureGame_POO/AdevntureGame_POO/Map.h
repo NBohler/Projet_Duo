@@ -4,11 +4,11 @@
 
 enum E_CellType {
     Ground = 0,
-    Mountain = 1,
-    Water = 2,
-    Enemies = 3,
-    Exit = 4,
-    Count = 5
+    Mountain=1 ,
+    Water=2  ,
+    Enemies=3  ,
+    Exit=4  ,
+    Count=5
 };
 
 struct TileInfo {
@@ -19,20 +19,20 @@ struct TileInfo {
 
 class Map {
 private:
-    char rawGrid[10][20];
+    int grid[10][20];
     int width;
     int height;
     TileInfo tileInfos[E_CellType::Count];
     Vector2 playerSpawn;
     std::vector<Vector2> enemySpawn;
     void initTileInfos();
-    void parseRow(const char* rowData, int y);
+   
 public:
-    Map(const char* rawData[10], Vector2 spawn);
+    Map(const int source[10][20], Vector2 spawn);
     ~Map();
     char getCell(Vector2 pos) const;
-    void LoadFromFile(const char* rawData[10]);
     void Draw(Vector2 playerPos, const std::vector<Vector2>& enemies) const;
+
     int GetWidth() const { return width; }
     int GetHeight() const { return height; }
     Vector2 GetPlayerSpawn() const { return playerSpawn; }
