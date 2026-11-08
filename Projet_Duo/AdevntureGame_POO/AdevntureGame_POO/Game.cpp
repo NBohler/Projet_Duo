@@ -10,10 +10,10 @@ void RunGameLoop() {
     std::vector<Map*> maps = loadAllMaps();
     int levelIdx = 0;
     bool running = true;
-	Warrior hero({ 0,0 });
+	Player* hero = createPlayer();
 	std::vector<Enemy*> enemies = createEnemiesGroup();
 	std::vector<Entity*> entities;
-	entities.push_back(&hero);                 // toujours en premier
+	entities.push_back(hero);                 // toujours en premier
 	for (Enemy* e : enemies)
 		entities.push_back(e);
 	while (running && levelIdx < (int)maps.size()) {
@@ -23,13 +23,15 @@ void RunGameLoop() {
 		for (Enemy* e : enemies)
 			if (e->isAlive())
 				enemyPositions.push_back(e->getPos());
-		currentMap->Draw(hero.getPos(), enemyPositions);
+		currentMap->Draw(hero->getPos(), enemyPositions);
 		for (Entity* e : entities)
 			if (e->isAlive())
 				e->onUpdate(*currentMap, entities);
-		if (not hero.isAlive())
+		if (not hero->isAlive())
 			running = false;
 	}
+
+	delete hero;
 	freeEnemyGroup(enemies);
 	freeAllMaps(maps);
 }

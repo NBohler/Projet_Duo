@@ -30,7 +30,7 @@ public:
 	int getLife(); //Permet de récupérer les points de vie de l'entité
 	Vector2 getPos(); //Permet de récupérer la position de l'entité
 	virtual ~Entity() = default;
-	void onUpdate(Map& map, std::vector<Entity*>& others);   // mouvement + collisions
+	virtual void onUpdate(Map& map, std::vector<Entity*>& others);   // mouvement + collisions
 	virtual void onCollision(Entity* other) = 0;
 	virtual Vector2 chooseDirection(std::vector<Entity*>& others) = 0;
 
