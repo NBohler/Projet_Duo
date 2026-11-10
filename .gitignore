@@ -1,0 +1,13 @@
+# Cache et fichiers générés par Visual Studio
+.vs/
+*.user
+*.suo
+*.ipch
+
+# Dossiers et fichiers de compilation
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.obj
+*.pdb
