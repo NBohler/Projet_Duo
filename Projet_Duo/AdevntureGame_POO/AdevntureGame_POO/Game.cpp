@@ -7,9 +7,9 @@
 
 // Définition de la fonction en premier
 void RunGameLoop() {
-    std::vector<Map*> maps = loadAllMaps();
-    int levelIdx = 0;
-    bool running = true;
+	std::vector<Map*> maps = loadAllMaps();
+	int levelIdx = 0;
+	bool running = true;
 	Player* hero = createPlayer();
 	std::vector<Enemy*> enemies = createEnemiesGroup();
 	std::vector<Entity*> entities;
@@ -29,9 +29,14 @@ void RunGameLoop() {
 				e->onUpdate(*currentMap, entities);
 		if (not hero->isAlive())
 			running = false;
-	}
+		if (currentMap->getCell(hero->getPos()) == 'E') {
+			levelIdx++; if (levelIdx < (int)maps.size()) {
+				hero->setPos(maps[levelIdx]->GetPlayerSpawn()); continue;
+			}
 
-	delete hero;
-	freeEnemyGroup(enemies);
-	freeAllMaps(maps);
+			delete hero;
+			freeEnemyGroup(enemies);
+			freeAllMaps(maps);
+		}
+	}
 }

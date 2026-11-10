@@ -33,6 +33,7 @@ public:
 	virtual void onUpdate(Map& map, std::vector<Entity*>& others);   // mouvement + collisions
 	virtual void onCollision(Entity* other) = 0;
 	virtual Vector2 chooseDirection(std::vector<Entity*>& others) = 0;
+	void setPos(Vector2 p) { pos = p; }
 
 protected:
     Vector2 pos = Vector2{};
