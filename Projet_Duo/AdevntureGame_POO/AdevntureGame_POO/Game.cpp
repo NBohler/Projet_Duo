@@ -3,7 +3,12 @@
 #include "Ennemies.h"
 #include "PlayeR.h"
 #include <iostream>
-
+void gameOver(bool& running)
+{
+	running = false;
+	system("cls");
+	std::cout << (" GAME OVER ");
+}
 
 // Définition de la fonction en premier
 void RunGameLoop() {
@@ -28,7 +33,7 @@ void RunGameLoop() {
 			if (e->isAlive())
 				e->onUpdate(*currentMap, entities);
 		if (not hero->isAlive())
-			running = false;
+			gameOver(running);
 		if (currentMap->getCell(hero->getPos()) == 'E') {
 			levelIdx++; if (levelIdx < (int)maps.size()) {
 				hero->setPos(maps[levelIdx]->GetPlayerSpawn()); continue;
